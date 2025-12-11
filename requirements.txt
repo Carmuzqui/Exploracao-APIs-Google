@@ -1,0 +1,16 @@
+# Google APIs
+googlemaps>=4.10.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Visualização
+streamlit>=1.28.0
+streamlit-folium>=0.15.0
+folium>=0.14.0
+plotly>=5.17.0
+
+# Utilities
+python-dotenv>=1.0.0
+requests>=2.31.0
