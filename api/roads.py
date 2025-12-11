@@ -165,13 +165,15 @@ class RoadsAPI:
     
     def analisar_via(
         self,
-        pontos: List[Tuple[float, float]]
+        pontos: List[Tuple[float, float]],
+        incluir_speed_limits: bool = False  # Desabilitado por padrão
     ) -> Dict:
         """
-        Análise completa de uma via (snap + speed limits)
+        Análise completa de uma via (snap + speed limits opcional)
         
         Args:
             pontos: Lista de pontos ao longo da via
+            incluir_speed_limits: Se deve tentar obter limites de velocidade
         
         Returns:
             Análise completa da via
@@ -188,17 +190,17 @@ class RoadsAPI:
             if p.get('place_id')
         ]))
         
-        # Obter limites de velocidade
+        # Obter limites de velocidade (OPCIONAL)
         limites = []
-        if place_ids:
-            limites = self.get_speed_limits(place_ids[:100])  # Máximo 100 por requisição
+        if incluir_speed_limits and place_ids:
+            limites = self.get_speed_limits(place_ids[:100])
         
         return {
             'pontos_ajustados': pontos_ajustados,
             'total_pontos': len(pontos_ajustados),
             'place_ids': place_ids,
             'limites_velocidade': limites,
-            'velocidade_media_kmh': self._calcular_velocidade_media(limites)
+            'velocidade_media_kmh': self._calcular_velocidade_media(limites) if limites else None
         }
     
     def _calcular_velocidade_media(self, limites: List[Dict]) -> Optional[float]:
