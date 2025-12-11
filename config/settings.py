@@ -65,7 +65,7 @@ EV_ADOPTION_RATE = 0.02  # 2% do parque vehicular (ajustável)
 
 # Configurações do Streamlit
 STREAMLIT_CONFIG = {
-    'page_title': 'Exploração APIs Google - Eletropostos',
+    'page_title': 'Exploração APIs Google',
     'page_icon': '🗺️',
     'layout': 'wide',
     'initial_sidebar_state': 'collapsed'  # Sidebar oculto por padrão
