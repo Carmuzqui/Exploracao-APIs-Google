@@ -1,19 +1,36 @@
-# Ignorar variáveis de ambiente e senhas
-.env
-
-# Ignorar ambientes virtuais
-venv/
-env/
-.venv/
-
-# Ignorar arquivos temporários e de cache do Python
+# Python
 __pycache__/
-*.pyc
-.pytest_cache/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
 
-# Ignorar configurações do Streamlit (opcional, caso tenha segredos locais)
-.streamlit/secrets.toml
+# Ambiente
+.env
+.env.local
 
-# Ignorar arquivos de sistema operacional
+# Cache
+cache/
+*.pkl
+*.pickle
+
+# Dados sensíveis
+dados/*.csv
+dados/*.json
+!dados/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
 .DS_Store
 Thumbs.db
+
+# Streamlit
+.streamlit/
